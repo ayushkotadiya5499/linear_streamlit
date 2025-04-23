@@ -5,6 +5,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression   
 from sklearn.metrics import mean_squared_error, r2_score
 from sklearn.datasets import make_regression
+import joblib
 # Generate synthetic regression data
 X, y = make_regression(n_samples=100, n_features=1, noise=10, random_state=42)
 
@@ -24,6 +25,8 @@ r2 = r2_score(y_test, y_pred)
 
 print(f"Mean Squared Error: {mse}")
 print(f"R^2 Score: {r2}")
+
+joblib.dump(model,'linear')
 
 # Plot the results
 plt.scatter(X_test, y_test, color='blue', label='Actual')
